@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
 class Pokemon(models.Model):
     number = models.IntegerField()
@@ -7,6 +8,7 @@ class Pokemon(models.Model):
     weight = models.FloatField()
     image_front = models.URLField()
     image_back = models.URLField()
+    caught_by = models.ManyToManyField(get_user_model(), related_name='caught')
 
     def __str__(self):
         return self.name
