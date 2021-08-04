@@ -9,6 +9,7 @@ class Pokemon(models.Model):
     image_front = models.URLField()
     image_back = models.URLField()
     caught_by = models.ManyToManyField(get_user_model(), related_name='caught')
+    # types = the set of Types associated with that Pokemon
 
     def __str__(self):
         return self.name
